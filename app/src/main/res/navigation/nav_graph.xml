@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/topHeadline">
+
+    <fragment
+        android:id="@+id/topHeadline"
+        android:name="com.syizuril.pawarta.TopHeadline"
+        android:label="top_headline_fragment"
+        tools:layout="@layout/top_headline_fragment" >
+        <action
+            android:id="@+id/action_topHeadline_to_detailArticle"
+            app:destination="@id/detailArticle"
+            app:popUpTo="@id/topHeadline"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_topHeadline_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:popUpTo="@id/topHeadline" />
+        <action
+            android:id="@+id/action_topHeadline_to_sourceFragment"
+            app:destination="@id/sourceFragment"
+            app:popUpTo="@id/topHeadline" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailArticle"
+        android:name="com.syizuril.pawarta.DetailArticle"
+        android:label="detail_article_fragment"
+        tools:layout="@layout/detail_article_fragment">
+
+        <argument
+            android:name="article"
+            app:argType="com.syizuril.pawarta.model.Articles"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.syizuril.pawarta.CategoryFragment"
+        android:label="category_fragment"
+        tools:layout="@layout/category_fragment" >
+        <action
+            android:id="@+id/action_categoryFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment"
+            app:popUpTo="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sourceFragment"
+        android:name="com.syizuril.pawarta.SourceFragment"
+        android:label="source_fragment"
+        tools:layout="@layout/source_fragment" >
+        <action
+            android:id="@+id/action_sourceFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment"
+            app:popUpTo="@id/sourceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.syizuril.pawarta.NewsListFragment"
+        android:label="news_list_fragment"
+        tools:layout="@layout/news_list_fragment" >
+        <argument
+            android:name="source"
+            app:argType="com.syizuril.pawarta.model.Source"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_newsListFragment_to_detailArticle"
+            app:destination="@id/detailArticle"
+            app:popUpTo="@id/newsListFragment" />
+        <argument
+            android:name="category"
+            app:argType="com.syizuril.pawarta.model.Category"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+</navigation>
