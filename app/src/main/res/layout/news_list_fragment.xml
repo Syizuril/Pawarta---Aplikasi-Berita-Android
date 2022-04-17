@@ -10,13 +10,13 @@
         android:id="@+id/main_app_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/black"
         android:layout_marginBottom="16dp"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight"
+        style="@style/toolbar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:titleCentered="true"
+        app:titleTextColor="@color/white"
         app:subtitleCentered="true"
         android:elevation="0dp">
     </com.google.android.material.appbar.MaterialToolbar>

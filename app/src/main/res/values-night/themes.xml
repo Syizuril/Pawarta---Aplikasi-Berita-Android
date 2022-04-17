@@ -6,14 +6,20 @@
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/reply_white_50_alpha_060</item>
+        <item name="colorSecondaryVariant">@color/reply_white_50_alpha_060</item>
         <item name="colorOnSecondary">@color/white</item>
 
         <item name="background">@color/reply_black_900_alpha_060</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="toolbar" parent="@style/Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:textColorSecondary">@android:color/white</item>
+        //toolbar title color
+        <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
 </resources>

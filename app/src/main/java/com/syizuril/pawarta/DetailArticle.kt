@@ -1,6 +1,7 @@
 package com.syizuril.pawarta
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
@@ -73,10 +74,21 @@ class DetailArticle : Fragment() {
 
         binding.appBarLayout.addOnOffsetChangedListener( AppBarLayout.OnOffsetChangedListener{
             appBarLayout, verticalOffset ->
-            val colorComponent =
-                kotlin.math.abs(255 - (255 * (verticalOffset.toFloat() / -appBarLayout.totalScrollRange)).toInt())
-            binding.appToolbar.navigationIcon?.colorFilter =
-                PorterDuffColorFilter(Color.rgb(colorComponent, colorComponent, colorComponent), PorterDuff.Mode.SRC_ATOP)
+            when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    val colorComponent =
+                        kotlin.math.abs((255 * (verticalOffset.toFloat() / -appBarLayout.totalScrollRange)).toInt())
+                    binding.appToolbar.navigationIcon?.colorFilter =
+                        PorterDuffColorFilter(Color.rgb(colorComponent, colorComponent, colorComponent), PorterDuff.Mode.SRC_ATOP)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    val colorComponent =
+                        kotlin.math.abs(255 - (255 * (verticalOffset.toFloat() / -appBarLayout.totalScrollRange)).toInt())
+                    binding.appToolbar.navigationIcon?.colorFilter =
+                        PorterDuffColorFilter(Color.rgb(colorComponent, colorComponent, colorComponent), PorterDuff.Mode.SRC_ATOP)
+                }
+            }
+
 
             when {
                 verticalOffset == 0 -> {
